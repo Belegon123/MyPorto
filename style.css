@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+  /* Палитра с картинки */
+  --bg-page: #f4efeb;         /* Светлый фон страницы */
+  --bg-card: #ffffff;         /* Фон карточек */
+  --dark-brown: #3b2a22;      /* Темный блок, шапка, подвал */
+  --primary-text: #333333;
+  --accent-brown: #7a3e0f;    /* Заголовки */
+  --accent-peach: #f9b98b;    /* Кнопки, выделения */
+  --gray-brown: #907b70;      /* Второстепенный текст, рамки */
+  --shadow: 0 10px 30px rgba(59, 42, 34, 0.1);
+}
+
+/* Темная тема (переопределение переменных) */
+body.dark-mode {
+  --bg-page: #241914;
+  --bg-card: #3b2a22;
+  --dark-brown: #1a120e;
+  --primary-text: #f4efeb;
+  --accent-brown: #f9b98b;
+  --accent-peach: #7a3e0f;
+  --gray-brown: #b8a69e;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-page);
+  color: var(--primary-text);
+  line-height: 1.6; /*интервал между текстом*/
+  transition: background-color 0.3s ease, color 0.3s ease; /*переход между темами*/
+}
+
+/* Шапка */
+header {
+    background-color: var(--dark-brown);
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    position: sticky;/*Прилипает к верху сайта*/
+    top: 0;/*Где должен прилепиться*/
+    z-index: 100;/*Значение по важности(сверху или снизу)*/
+}
+
+nav {
+    flex-grow: 1; /*Забирает свободное метсо для шапки*/
+    display: flex;
+    justify-content: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.header-logo {
+    height: 80px;
+    width: 160px; 
+    object-fit: cover; /* Обрезание краев */
+    border-radius: 10px; /* Скруглить края картинки*/
+    transition: transform 0.3s ease;/*ease=плавность анимации*/
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Эффект при наведении на логотип */
+.logo-link:hover .header-logo {
+  transform: scale(1.05);
+}
+
+/* Размер логотипов в навыках */
+.skill-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;/*вместить в рамки(желательно только с квадратными)*/
+}
+
+/* Немного обновим сами элементы списка, чтобы они смотрелись как плашки */
+.sites li {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Расстояние между картинкой и текстом */
+  background-color: var(--bg-card); /* Белый фон для каждой плашки */
+  padding: 10px 20px;/*По осям*/
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(59, 42, 34, 0.05); /* Легкая тень */
+}
+
+/* Чуть-чуть изменим фон контейнера для контраста */
+.sites {
+  display: flex;
+  flex-wrap: wrap;/*Прыгает на следующую строку*/
+  gap: 20px;
+  list-style: none;/*убирает точку слева у ul,li*/
+  background-color: rgba(249, 185, 139, 0.15);
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 4px solid var(--accent-peach);
+}
+
+.logo {
+  color: var(--accent-peach);
+  font-size: 1.5rem;
+  font-weight: bold;/*Делает текст жирным*/
+  text-decoration: none;/*Убирает подчеркивание ссылки*/
+}
+
+ul.menu {
+    display: flex;
+    gap: 30px; /* Расстояние между ссылками */
+    list-style: none;
+    white-space: nowrap; /* Запрещаем перенос текста на новую строку */
+}
+
+ul.menu a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+ul.menu a:hover {
+  color: var(--accent-peach);
+}
+
+/* Стили переключателя темы (чтобы не прыгал) */
+.smena {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.smena input {
+    cursor: pointer;/*Меняет стрелочку при навидение*/
+}
+
+/* Основной контейнер-карточка */
+.card-container {
+  max-width: 1100px;
+  margin: 40px auto;/*авто = берет с права и лева одинковое растояние и делит поровну*/
+  background-color: var(--bg-card);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  padding: 40px;
+  transition: background-color 0.3s ease;
+}
+
+/* Секции и заголовки */
+.content-block {
+  margin-bottom: 50px;/*токлкает вниз*/
+}
+
+h2 {
+  color: var(--accent-brown);
+  font-size: 2rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent-peach);
+  display: inline-block;/*Сжимает блок до ширины текста, но сохраняет способность иметь свои отступы и рамки*/
+}
+
+/* Видео */
+.video-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+}
+
+/* Навыки (стиль списка с галочками как на макете) */
+.sites {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  background-color: rgba(249, 185, 139, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid var(--accent-peach);
+}
+
+.sites li {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.check {
+  color: #4CAF50; /* Зеленая галочка для контраста или можно var(--accent-brown) */
+}
+
+/* Проекты (Сетка) */
+.projects-grid {
+  display: grid;/*Делает сеткой или таблица*/
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));/*Создает повторные колонки по критериями*/
+  gap: 20px;
+}
+
+.project {
+  background-color: var(--bg-page);
+  border: 1px solid var(--gray-brown);
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project:hover {
+  transform: translateY(-5px);/*двигает вверх*/
+  box-shadow: var(--shadow);
+} /*рабоотает при наведение*/
+
+.project h3 {
+  color: var(--accent-brown);
+  margin-bottom: 10px;
+}
+
+.procmotr {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 15px;
+  background-color: var(--accent-peach);
+  color: var(--dark-brown);
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Секция Контактов и Форма (Макет 2 колонки) */
+.columns {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.contacts-info {
+  flex: 1;/*Текст сжимается расширается в форме*/
+}
+
+/* блок формы */
+.forma {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-brown);
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+}
+
+.forma h3 {
+  margin-bottom: 20px;/*отступы со всех сторон*/
+  color: var(--accent-peach);
+  text-align: center;
+}
+
+.forma label {
+  font-size: 0.9rem;/*делает текст в вводе меньше чем основной*/
+  margin-bottom: 5px;
+  color: #ccc;
+}
+
+.forma input, .forma textarea/*делает шрифт такой же как и у всего сайта*/ {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid var(--gray-brown);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-family: inherit;
+}
+
+.forma textarea {
+  resize: vertical;/*растягивет поле вниз*/
+  height: 100px;
+}
+
+.forma button {
+  background-color: var(--accent-peach);
+  color: var(--dark-brown);
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.forma button:hover {
+  opacity: 0.9;/*прозрачность*/
+}
+
+/* Подвал */
+footer {
+  background-color: var(--dark-brown);
+  color: var(--gray-brown);
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* Бургер-меню для мобилок */
+.burger {
+  width: 30px;
+  height: 22px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.burger span {
+  background-color: var(--accent-peach);
+  height: 3px;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Адаптив (Телефоны) */
+@media (max-width: 768px) {
+  .card-container {
+    margin: 20px 10px;
+    padding: 20px;
+  }
+  
+  .columns {
+    flex-direction: column;
+  }
+  
+  .forma {
+    width: 100%;
+  }
+
+  iframe {
+    height: 250px;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  ul.menu {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark-brown);
+    flex-direction: column;
+    padding: 20px 0;
+    align-items: center;
+  }
+
+  ul.menu.show {
+    display: flex;
+  }
+
+  ul.menu {
+        gap: 15px;
+        font-size: 14px;
+    }
+}
+

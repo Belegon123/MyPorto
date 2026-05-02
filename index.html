@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мое портфолио</title>
+  </head>
+  <body>
+    <header>
+  <a href="#" class="logo-link">
+    <img src="images\logo.png" alt="Степан Шашерин" class="header-logo" />
+  </a>
+  <nav>
+    <ul class="menu">
+      <li><a href="#about">Обо мне</a></li>
+      <li><a href="#skills">Навыки</a></li>
+      <li><a href="#projects">Проекты</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+  </nav>
+  <div class="smena">
+    <label>
+      <input class="tema" type="checkbox">
+      <span class="slider">🌙</span>
+    </label>
+  </div>
+  <div class="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+    <main class="card-container">
+      <section id="about" class="content-block">
+        <h2>Обо мне</h2>
+        <div class="about-text">
+          <p><strong>Привет! Меня зовут Степан Шашерин.</strong></p>
+          <p>Я студент и начинающий разработчик, который изучает создание сайтов с помощью HTML, CSS и JAVASCRIPT.</p>
+          <p>Моя цель - стать хорошим разработчиком и создавать полезные и интересные проекты!</p>
+        </div>
+      </section>
+
+      <section class="video-section">
+        <iframe
+          class="strok"
+          src="https://www.youtube.com/embed/jc5Upe8xIN0?si=4ot8Wilmks-eFnlR"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </section>
+
+      <section id="skills" class="content-block">
+        <h2>Навыки</h2>
+        <ul class="sites">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML" class="skill-icon">
+          <li><span class="check">✔</span> HTML</li>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS" class="skill-icon">
+          <li><span class="check">✔</span> CSS</li>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-icon">
+          <li><span class="check">✔</span> JAVASCRIPT</li>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="skill-icon">
+          <li><span class="check">✔</span> PYTHON</li>
+        </ul>
+      </section>
+
+      <section id="projects" class="content-block">
+        <h2>Проекты</h2>
+        <div class="projects-grid">
+          <div class="project">
+            <div class="project-info">
+              <h3>Flappy Birds</h3>
+              <p>Мини-игра на JavaScript</p>
+              <a href="https://github.com/Belegon123/Flappy-Birds.git" class="procmotr">Посмотреть</a>
+            </div>
+          </div>
+          <div class="project">
+            <div class="project-info">
+              <h3>Массивы</h3>
+              <p>Работа с массивами (поиск наибольшего числа)</p>
+              <a href="https://github.com/Belegon123/M3Y4.git" class="procmotr">Посмотреть</a>
+            </div>
+          </div>
+          <div class="project">
+            <div class="project-info">
+              <h3>Карты</h3>
+              <p>Добавление карт на сайт</p>
+              <a href="https://github.com/Belegon123/M6.git" class="procmotr">Посмотреть</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacts" class="content-block columns">
+        <div class="contacts-info">
+          <h2>Свяжитесь со мной</h2>
+          <p>Оставьте свои данные, и я свяжусь с вами в ближайшее время для обсуждения проектов!</p>
+        </div>
+        
+        <form class="forma">
+          <h3>Форма заявки</h3>
+          <label for="name">Ф.И.О</label>
+          <input id="name" placeholder="Иванов Иван" required name="name">
+          
+          <label for="number">Телефон</label>
+          <input type="tel" id="number" placeholder="+7 (999) 000-00-00" required name="number">
+          
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="example@mail.ru" required name="email">
+          
+          <label for="comment">Комментарий</label>
+          <textarea id="comment" placeholder="Напишите ваше сообщение..." name="comments"></textarea>
+          
+          <button type="submit">Отправить!</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p class="p">© 2024 Степан Шашерин. Все права защищены.</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
